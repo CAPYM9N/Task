@@ -1,0 +1,19 @@
+# php_flag magic_quotes_qps Off #  Экранирование ковычек выкл
+
+AddDefaultCharset utf-8
+
+DirectoryIndex index.php
+
+<FilesMatch "users.json">
+
+deny from all
+
+</FilesMatch>
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f [NC] # Если то что запросил пользователь не файл то
+
+RewriteCond %{REQUEST_FILENAME} !favicon.ico [NC]
+
+RewriteRule ^(.*)$ /index.php [L] # перенаправить на index.php
